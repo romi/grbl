@@ -372,7 +372,7 @@
 #ifdef DEFAULTS_ROMI_X_CARVE
   // Description: ROMI X-Carve 3D Carver CNC mill with three 200 step/rev motors driven by Synthetos
   // grblShield at 24V.
-  #define MICROSTEPS_XY 8
+  #define MICROSTEPS_XY 16
   #define STEP_REVS_XY 200
   #define MM_PER_REV_XY (2.0*20) // 2mm belt pitch, 20 pulley teeth
   #define MICROSTEPS_Z 16
@@ -381,15 +381,15 @@
   #define DEFAULT_X_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Y_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Z_STEPS_PER_MM (MICROSTEPS_Z*STEP_REVS_Z/MM_PER_REV_Z)
-  #define DEFAULT_X_MAX_RATE 8000.0 // mm/min
-  #define DEFAULT_Y_MAX_RATE 8000.0 // mm/min
-  #define DEFAULT_Z_MAX_RATE 500.0 // mm/min
-  #define DEFAULT_X_ACCELERATION (500.0*60*60) // 25*60*60 mm/min^2 = 25 mm/sec^2
-  #define DEFAULT_Y_ACCELERATION (500.0*60*60) // 25*60*60 mm/min^2 = 25 mm/sec^2
-  #define DEFAULT_Z_ACCELERATION (50.0*60*60) // 25*60*60 mm/min^2 = 25 mm/sec^2
+  #define DEFAULT_X_MAX_RATE 6000.0 // mm/min
+  #define DEFAULT_Y_MAX_RATE 6000.0 // mm/min
+  #define DEFAULT_Z_MAX_RATE 1500.0 // deg/min
+  #define DEFAULT_X_ACCELERATION (500.0*60*60) // 500*60*60 mm/min^2 = 500 mm/sec^2
+  #define DEFAULT_Y_ACCELERATION (500.0*60*60) // 500*60*60 mm/min^2 = 500 mm/sec^2
+  #define DEFAULT_Z_ACCELERATION (50.0*60*60) // 50*60*60 deg/min^2 = 50 deg/sec^2
   #define DEFAULT_X_MAX_TRAVEL 740.0 // mm NOTE: Must be a positive value.
-  #define DEFAULT_Y_MAX_TRAVEL 790.0 // mm NOTE: Must be a positive value.
-  #define DEFAULT_Z_MAX_TRAVEL 100.0 // mm NOTE: Must be a positive value.
+  #define DEFAULT_Y_MAX_TRAVEL 740.0 // mm NOTE: Must be a positive value.
+  #define DEFAULT_Z_MAX_TRAVEL 100000.0 // deg NOTE: Must be a positive value.
   #define DEFAULT_SPINDLE_RPM_MAX 10000.0 // rpm
   #define DEFAULT_SPINDLE_RPM_MIN 0.0 // rpm
   #define DEFAULT_STEP_PULSE_MICROSECONDS 10
@@ -406,12 +406,12 @@
   #define DEFAULT_HARD_LIMIT_ENABLE 0  // false
   #define DEFAULT_INVERT_PROBE_PIN 0 // false
   #define DEFAULT_LASER_MODE 0 // false
-  #define DEFAULT_HOMING_ENABLE 0  // false
-  #define DEFAULT_HOMING_DIR_MASK 3 // move positive dir
-  #define DEFAULT_HOMING_FEED_RATE 25.0 // mm/min
+  #define DEFAULT_HOMING_ENABLE 1  // true
+  #define DEFAULT_HOMING_DIR_MASK 0 // move negative dir
+  #define DEFAULT_HOMING_FEED_RATE 100.0 // mm/min
   #define DEFAULT_HOMING_SEEK_RATE 750.0 // mm/min
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 250 // msec (0-65k)
-  #define DEFAULT_HOMING_PULLOFF 1.0 // mm
+  #define DEFAULT_HOMING_PULLOFF 20.0 // mm
 #endif
 
 #ifdef DEFAULTS_BOBSCNC_E3
