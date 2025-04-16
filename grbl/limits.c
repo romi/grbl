@@ -46,6 +46,9 @@ void limits_init()
     LIMIT_PORT &= ~(LIMIT_MASK); // Normal low operation. Requires external pull-down.
   #else
     LIMIT_PORT |= (LIMIT_MASK);  // Enable internal pull-up resistors. Normal high operation.
+    #ifdef DISABLE_Z_LIMIT_PIN_PULL_UP
+      LIMIT_PORT &= ~(1<<Z_LIMIT_BIT);  // disable z limit pull up to work with rotary encoder
+    #endif
   #endif
 
   if (bit_istrue(settings.flags,BITFLAG_HARD_LIMIT_ENABLE)) {
